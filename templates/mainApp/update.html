@@ -1,0 +1,41 @@
+{% extends 'mainApp/navbar.html' %}
+{% load crispy_forms_tags %}
+{% block title %}
+    <title>Update List</title>
+{% endblock %}
+
+{% block content %}
+
+    <div class="container" style="margin-top:5rem;">
+        <h1>Update Grocery List</h1>
+        <form action="" method="POST">
+            {% csrf_token %}
+            {{item | crispy}}
+            {% comment %} <div class="form-group">
+                <label>Item name</label>
+                <input type="text" class="form-control" placeholder="Item name" name="itemName"/>
+            </div>
+            <div class="form-group">
+                <label>Item quantity</label>
+                <input type="text" class="form-control" placeholder="Item quantity" name="itemQuantity"/>
+            </div>
+            <div class="form-group">
+                <label>Item status</label>
+                <select class="form-control" name="flag">
+                    <option value="PENDING">PENDING</option>
+                    <option value="BOUGHT">BOUGHT</option>
+                    <option value="NOTAVAILABLE">NOT AVAILABLE</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label>Date</label>
+                <input type="date" class="form-control" name="dateAdded">
+            </div> {% endcomment %}
+            <div class="form-group">
+                <input type="submit" value="Update" class="btn btn-danger">
+            </div>
+        </form>
+    </div>
+
+{% endblock %}
+
