@@ -10,7 +10,7 @@ from django.contrib import messages
 def index(request):
     if request.method == 'POST':
         dateclicked = request.POST.get('dateClicked')
-        filtereditems = GroceryItems.objects.filter(dateAdded=dateclicked)
+        filtereditems = GroceryItems.objects.filter(owner=request.user,dateAdded=dateclicked)
         if len(filtereditems) == 0:
             messages.warning(request,f'No items in the Grocery list on Date : {dateclicked}.Please Click on Grocery Bag logo')
         context = {'items':filtereditems}
